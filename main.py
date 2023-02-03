@@ -1,9 +1,17 @@
 import eel
+from logic.compiler import Compiler
 
-@eel.expose
-def Launch():
-    eel.start("index.html")
+class MainWindow:
+
+    def __init__(self):
+        self.compiler = Compiler()
+        eel.init("web")
+        self.Launch()
+
+    @eel.expose
+    def Launch(self):
+        eel.start("index.html")
+
 
 if __name__ == "__main__":
-    eel.init("web")
-    Launch()
+    MainWindow()
